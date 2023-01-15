@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        int n=grid.size(),area=0,a=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]!=0){
+                    area++;
+                }
+                a=max(a,grid[j][i]);
+            }
+            area=area+*max_element(grid[i].begin(),grid[i].end());
+            area=area+a;
+            a=0;
+        }
+        return area;
+    }
+};
