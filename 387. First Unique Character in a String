@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        int a=-1,b=0;
+        string s1=s;
+        if(s.length()==1)
+            a=0;
+        else if(s.length()>1){
+            for(int i=0;i<s.length();i++){
+                for(int j=i+1;j<s.length();j++){
+                    if(s[i]==s[j]){
+                        b=1;
+                        s.erase(j,1);
+                        j--;
+                    }
+                }
+                if(b==1){
+                    s.erase(i,1);
+                    b=0;
+                    i--;
+                }
+            }
+            for(int k=0;k<s1.length();k++){
+                if(s1[k]==s[0]){
+                    a=k;
+                    break;
+                }
+            }
+        }
+        return a;
+    }
+};
