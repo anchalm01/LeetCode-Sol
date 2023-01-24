@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> findSubstring(string s, vector<string>& words) {
+        int n=words[0].length()*words.size();
+        string str,s1;
+        vector<int> ans;
+        vector<string> v;
+        sort(words.begin(),words.end());
+        for(int i=0;i<s.length()-n+1;i++){
+            str=s.substr(i,n);
+            for(int j=0;j<str.length();j++){
+                s1=str.substr(j,words[0].length());
+                j=j+words[0].length()-1;
+                v.push_back(s1);
+            }
+            sort(v.begin(),v.end());
+            if(v==words){
+                ans.push_back(i);
+            }
+            v.clear();
+        }
+        return ans;
+    }
+};
