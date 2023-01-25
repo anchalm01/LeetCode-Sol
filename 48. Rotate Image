@@ -1,0 +1,20 @@
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int a=matrix[0].size();
+        vector<int> v[a];
+        int b=0;
+        
+        while(b!=a*a){
+            for(int i=a-1;i>=0;i--){
+                for(int j=0;j<a;j++){
+                    (v[j]).push_back((matrix[i])[j]);
+                    b++;
+                }
+            }
+        }
+        for(int k=0;k<a;k++){
+            matrix[k]=v[k];
+        }
+    }
+};
