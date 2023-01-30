@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<string> restoreIpAddresses(string s) {
+        vector<string> ans;
+        string str;
+        if(s.length()<=3||s.length()>12){
+            return ans;
+        }
+        else {
+            for(int i=1;i<=3;i++){
+                for(int j=1;j<=3;j++){
+                    for(int k=1;k<=3;k++){
+                        if(i+j+k<s.length()&&i+j+k+3>=s.length()){
+                            string a=s.substr(0,i);
+                            string b=s.substr(i,j);
+                            string c=s.substr(i+j,k);
+                            string d=s.substr(i+j+k);
+                            int a1=stoi(a);
+                            int b1=stoi(b);
+                            int c1=stoi(c);
+                            int d1=stoi(d);
+                            if(a.length()>1&&a[0]=='0'){
+
+                            }
+                            else if(b.length()>1&&b[0]=='0'){
+
+                            }
+                            else if(c.length()>1&&c[0]=='0'){
+                                
+                            }
+                            else if(d.length()>1&&d[0]=='0'){
+                                
+                            }
+                            else if(a1<=255&&b1<=255&&c1<=255&&d1<=255)
+                                ans.push_back(a+"."+b+"."+c+"."+d);
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
