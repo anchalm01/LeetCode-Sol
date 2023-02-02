@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        for(int i=0;i<tokens.size();i++){
+            if(tokens[i]=="/"){
+                tokens[i-2]=to_string(stoi(tokens[i-2])/stoi(tokens[i-1]));
+                tokens.erase(tokens.begin()+i);
+                tokens.erase(tokens.begin()+i-1);
+                i=i-3;
+            }
+            else if(tokens[i]=="*"){
+                tokens[i-2]=to_string(stol(tokens[i-2])*stol(tokens[i-1]));
+                tokens.erase(tokens.begin()+i);
+                tokens.erase(tokens.begin()+i-1);
+                i=i-3;
+            }
+            else if(tokens[i]=="-"){
+                tokens[i-2]=to_string(stoi(tokens[i-2])-stoi(tokens[i-1]));
+                tokens.erase(tokens.begin()+i);
+                tokens.erase(tokens.begin()+i-1);
+                i=i-3;
+            }
+            else if(tokens[i]=="+"){
+                tokens[i-2]=to_string(stoi(tokens[i-2])+stoi(tokens[i-1]));
+                tokens.erase(tokens.begin()+i);
+                tokens.erase(tokens.begin()+i-1);
+                i=i-3;
+            }
+        }
+        return stoi(tokens[0]);
+    }
+};
