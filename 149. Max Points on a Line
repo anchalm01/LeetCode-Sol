@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int maxPoints(vector<vector<int>>& points) {
+        vector<double> v;
+        vector<int> ans;
+        int b=2,c=0;
+        if(points.size()<=2)
+        return points.size();
+        else{
+            for(int i=0;i<points.size();i++){
+            for(int j=0;j<points.size();j++){
+                if(j!=i){
+                    double a= (double)(points[i][1]-points[j][1])/(double)(points[i][0]-points[j][0]);
+                    v.push_back(a);
+                }
+            }
+            sort(v.begin(),v.end());
+            for(int k=0;k<v.size()-1;k++){
+                if(v[k]==v[k+1]){
+                    b++;
+                }
+                else{
+                    c=max(c,b);
+                    b=2;
+                }
+            }
+            c=max(c,b);
+            b=2;
+            ans.push_back(c);
+            c=0;
+            v.clear();
+        }
+        return *max_element(ans.begin(),ans.end());
+        }
+        
+    }
+};
