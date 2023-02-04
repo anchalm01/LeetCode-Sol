@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        int val=0;
+        bool ans=true;
+        
+        
+            while(n){
+                if(n==7||n==1){
+                    ans=true;
+                    break;
+                }
+                else if((n==2||n==3||n==4||n==5||n==6||n==8||n==9||n==0)){
+                    ans=false;
+                    break;
+                }
+                else{
+                    while(n>0){
+                    val=val+(n%10)*(n%10);
+                    n=n/10;
+                }
+                    n=val;
+                    val=0;
+                }
+                
+                
+                
+                
+            }
+        
+        return ans;
+    }
+};
