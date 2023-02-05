@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> answer;
+        int product=1,a,p=1;
+        for(int i=0;i<nums.size();i++){
+            product=product*nums[i];
+        }
+        for(int j=0;j<nums.size();j++){
+            if(nums[j]!=0){
+                a=product/nums[j];
+                answer.push_back(a);
+            }
+            else{
+                for(int k=0;k<nums.size();k++){
+                    if(k!=j){
+                        p=p*nums[k];
+                    }
+                }
+                answer.push_back(p);
+                p=1;
+            }
+            
+        }
+        
+        return answer;
+    }
+};
