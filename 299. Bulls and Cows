@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        int a=0;
+        string s;
+        for(int i=0;i<secret.length();i++){
+            if(secret[i]==guess[i]){
+                a++;
+                secret.erase(i,1);
+                guess.erase(i,1);
+                i--;
+            }
+        }
+        s=s+to_string(a);
+        s.push_back('A');
+        a=0;
+        for(int j=0;j<secret.length();j++){
+            for(int k=0;k<guess.length();k++){
+                if(secret[j]==guess[k]){
+                    a++;
+                    guess.erase(k,1);
+                    secret.erase(j,1);
+                    j--;
+                    break;
+                }
+            }
+        }
+        s=s+to_string(a);
+        s.push_back('B');
+        return s;
+    }
+};
