@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        vector<int> v;
+        int a=x^y,ans=0;
+        while(a!=0){
+            v.push_back(a%2);
+            a=a/2;
+        }
+        reverse(v.begin(),v.end());
+        for(int i=0;i<v.size();i++){
+            if(v[i]==1){
+                ans++;
+            }
+            
+        }
+        return ans;
+    }
+};
