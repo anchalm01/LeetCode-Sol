@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string reverseStr(string s, int k) {
+        for(int i=0;i<s.length();i++){
+            if(i+k<=s.length()-1){
+                reverse(s.begin()+i,s.begin()+i+k);
+                i=i+2*k;
+                i=i-1;
+            }
+            else{
+                reverse(s.begin()+i,s.end());
+                i=s.length();
+            }
+        }
+        return s;
+    }
+};
